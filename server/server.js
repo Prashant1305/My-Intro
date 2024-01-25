@@ -7,6 +7,7 @@ const errorMiddleware = require("./middlewares/error-middle");
 const contactRoute = require("./router/contact-router");
 const serviceRoute = require("./router/service-router");
 const cors = require("cors");
+const adminRoute = require("./router/admin-router");
 
 // handling cors error
 const corsOptions = {
@@ -19,8 +20,9 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api/auth", authRoute);
-app.use("/api/form", contactRoute);// created one special route for contact
+app.use("/api/form", contactRoute);// created route for contact
 app.use("/api/data", serviceRoute);
+app.use("/api/admin", adminRoute);
 
 app.use(errorMiddleware);
 

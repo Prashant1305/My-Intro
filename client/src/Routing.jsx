@@ -10,6 +10,10 @@ import Register from './pages/Register';
 import Err from './pages/Err';
 import Auth from './store/auth';
 import Logout from './pages/Logout';
+import AdminLayout from './components/AdminLayout';
+import AdminUsers from './pages/AdminUsers';
+import AdminContacts from './pages/AdminContacts';
+import AdminHome from './pages/AdminHome';
 
 function Routing() {
     const router = createBrowserRouter(createRoutesFromElements(
@@ -21,6 +25,11 @@ function Routing() {
             <Route path='register' element={<Register />} />
             <Route path='login' element={<Login />} />
             <Route path='logout' element={<Logout />} />
+            <Route path='admin' element={<AdminLayout />}>
+                <Route index element={<AdminHome />} />
+                <Route path='users' element={<AdminUsers />} />
+                <Route path='contacts' element={<AdminContacts />} />
+            </Route>
             <Route path='*' element={<Err />} />
         </Route>
     ));

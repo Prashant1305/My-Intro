@@ -15,6 +15,9 @@ const authMiddleware = async (req, res, next) => {
         console.log(isVerified);
 
         const userData = await user.findOne({ "email": isVerified.email }).select({ password: 0, });
+        if (!userData.isAdmin) {
+            return res.status(401).json({ message: "Admin privilages not provided" });
+        }
         req.userData = userData; // passing data by adding property in request
         console.log(userData);
 
