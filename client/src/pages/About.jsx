@@ -10,7 +10,7 @@ function About() {
                 <section className="section-hero">
                     <div className="container grid grid-two-cols">
                         <div className="hero-content">
-                            {isLogged && <p>Hii {user.username}</p>}
+                            {isLogged && user && <p>Hii {user.username}</p>}
 
                             <h1>Why Choose Us? </h1>
                             <p>

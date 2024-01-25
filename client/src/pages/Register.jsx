@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import "./Register.css";
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+
 
 function Register() {
     const [user, setuser] = useState({
@@ -28,14 +30,17 @@ function Register() {
             console.log(res_data);
             if (res.ok) {
                 // localStorage.setItem("token", res_data.token);
+                toast.success("Registraion successfull");
                 navigate("/login");
             }
-
+            else {
+                toast.error(res_data.extraDetails ? res_data.extraDetails : res_data.message);
+                console.log("invalid credential");
+            }
         } catch (error) {
 
             console.log(error);
         }
-
     }
     return (
         <>

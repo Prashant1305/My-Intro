@@ -33,7 +33,7 @@ const login = async (req, res) => {
         const userExist = await User.findOne({ email });
         console.log(userExist);
         if (!userExist) {
-            return res.status(400).json({ message: "invalid credintials" });
+            return res.status(400).json({ message: "user does not exist in database" });
         }
         // const isPasswordValid = await bcrypt.compare(password, userExist.password); // instead of this, we used method
         const isPasswordValid = await userExist.myCompare(password);
@@ -43,7 +43,7 @@ const login = async (req, res) => {
             res.status(200).json({ message: "Login Successful", token: await userExist.generateToken(), userId: userExist._id.toString() });
         }
         else {
-            res.status(401).json({ message: "invalid email or password" });
+            res.status(401).json({ message: "wrong email or password" });
         }
     } catch (error) {
         res.status(500).json("internal server error");

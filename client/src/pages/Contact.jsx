@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import "./Contact.css"
 import { TokenContext } from '../store/auth';
+import { toast } from 'react-toastify';
+
 function Contact() {
     const [contact, setContact] = useState({
         username: "",
@@ -37,7 +39,7 @@ function Contact() {
                 const messageRecived = await res.json();
                 console.log(messageRecived);
                 setContact({ ...contact, message: "" });
-                alert("message sent to devloper");
+                toast.success("message sent to devloper");
             }
         } catch (error) {
             console.log(error);

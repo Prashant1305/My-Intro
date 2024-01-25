@@ -2,7 +2,6 @@ import './App.css'
 import Routing from './Routing';
 import Auth from './store/auth';
 
-
 function App() {
 
   return (

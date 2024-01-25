@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import "./Register.css";
 import { useNavigate } from 'react-router-dom';
 import { TokenContext } from '../store/auth';
+import { toast } from "react-toastify";
 
 function Login() {
     const [user, setuser] = useState({
         email: "",
         password: ""
     });
+
     function handleInput(e) {
         setuser({ ...user, [e.target.name]: e.target.value });
     }
@@ -32,11 +34,15 @@ function Login() {
                 setToken(res_data.token);
                 setLogged(true);
                 // console.log("settoken wala token", token);
+                toast.success("Login Successfull");
                 navigate("/");
+            }
+            else {
+                toast.error(res_data.extraDetails ? res_data.extraDetails : res_data.message);
+                console.log("invalid credential");
             }
             // console.log(res);
         } catch (error) {
-
             console.log(error);
         }
     }

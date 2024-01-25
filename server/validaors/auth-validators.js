@@ -21,7 +21,7 @@ const signupSchema = z.object({
 
     password: z
         .string({ required_error: "password is required" })
-        .min(3, { message: "Password must be atleast of 6 characters" })
+        .min(6, { message: "Password must be atleast of 6 characters" })
         .max(1024, "Password can't be greater than 1024"),
 });
 
@@ -35,7 +35,7 @@ const loginSchema = z.object({
 
     password: z
         .string({ required_error: "password is required" })
-        .min(3, { message: "Password must be atleast of 6 characters" })
+        .min(6, { message: "Password must be atleast of 6 characters" })
         .max(1024, "Password can't be greater than 1024"),
 });
 module.exports = { signupSchema, loginSchema };
