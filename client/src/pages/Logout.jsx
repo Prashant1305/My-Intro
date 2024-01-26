@@ -1,5 +1,5 @@
 import React from 'react'
-import { TokenContext } from '../store/auth'
+import { TokenContext } from '../Context/Auth'
 import { useNavigate } from 'react-router-dom'
 
 function Logout() {

@@ -1,6 +1,6 @@
 import './App.css'
 import Routing from './Routing';
-import Auth from './store/auth';
+import Auth from './Context/Auth';
 
 function App() {
 

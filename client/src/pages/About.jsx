@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { TokenContext } from '../store/auth'
+import { TokenContext } from '../Context/Auth';
 
 function About() {
     const { isLogged, user } = TokenContext();

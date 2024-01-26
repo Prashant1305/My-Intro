@@ -36,4 +36,12 @@ const deleteUser = async (req, res) => {
         next(error);
     }
 }
-module.exports = { getAllUsers, getAllContacts, deleteUser };
+
+const getUserById = async (req, res) => {
+    try {
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+module.exports = { getAllUsers, getAllContacts, deleteUser, getUserById };

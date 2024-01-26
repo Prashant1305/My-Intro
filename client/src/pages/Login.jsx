@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./Register.css";
 import { useNavigate } from 'react-router-dom';
-import { TokenContext } from '../store/auth';
+import { TokenContext } from '../Context/Auth';
 import { toast } from "react-toastify";
 
 function Login() {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { TokenContext } from '../store/auth';
+import { TokenContext } from '../Context/Auth';
 import { v4 as uuid } from 'uuid'
+import { useNavigate } from 'react-router-dom';
 
 
 function AdminUsers() {
@@ -43,6 +44,7 @@ function AdminUsers() {
     useEffect(() => {
         getAllUserData();
     }, []);
+    const navigate = useNavigate()
     return (
         <>
             <section className="admin-users-section">
@@ -66,7 +68,8 @@ function AdminUsers() {
                                     <td>{user.username}</td>
                                     <td>{user.email}</td>
                                     <td>{user.phone}</td>
-                                    <td>Update</td>
+                                    <td><button onClick={(e) => {
+                                    }}>Update</button></td>
                                     <td><button onClick={() => { deleteUser(user._id) }}>Delete</button></td>
                                 </tr>);
                             })}

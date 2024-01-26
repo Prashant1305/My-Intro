@@ -1,5 +1,5 @@
 import React from 'react'
-import { TokenContext } from '../store/auth';
+import { TokenContext } from '../Context/Auth';
 import { NavLink } from 'react-router-dom';
 import { IoHomeSharp, IoLogOutSharp, IoLogInSharp } from "react-icons/io5";
 import { FaInfoCircle } from "react-icons/fa";
