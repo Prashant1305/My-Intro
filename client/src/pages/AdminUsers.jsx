@@ -69,7 +69,7 @@ function AdminUsers() {
                                     <td>{user.username}</td>
                                     <td>{user.email}</td>
                                     <td>{user.phone}</td>
-                                    <td><Link to={`/admin/users/${user._id}/edit`}>Update</Link></td>
+                                    <td><Link to={`/admin/users/${user._id}/edit`}>Edit</Link></td>
                                     <td><button onClick={() => { deleteUser(user._id) }}>Delete</button></td>
                                 </tr>);
                             })}
