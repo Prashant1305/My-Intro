@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { TokenContext } from '../Context/Auth';
-import { v4 as uuid } from 'uuid'
-import { useNavigate } from 'react-router-dom';
+import { v4 as uuid } from 'uuid';
 
 
 function AdminUsers() {
@@ -17,7 +17,7 @@ function AdminUsers() {
             });
             const res_data = await res.json();
             setUsers(res_data);
-            console.log(res_data);
+            // console.log(res_data);
         } catch (error) {
             console.log(error);
         }
@@ -35,7 +35,7 @@ function AdminUsers() {
                 getAllUserData();
             }
             const vrfy = await res.json();
-            console.log(vrfy);
+            // console.log(vrfy);
         } catch (error) {
             console.log(error);
         }
@@ -44,7 +44,6 @@ function AdminUsers() {
     useEffect(() => {
         getAllUserData();
     }, []);
-    const navigate = useNavigate()
     return (
         <>
             <section className="admin-users-section">
@@ -68,8 +67,7 @@ function AdminUsers() {
                                     <td>{user.username}</td>
                                     <td>{user.email}</td>
                                     <td>{user.phone}</td>
-                                    <td><button onClick={(e) => {
-                                    }}>Update</button></td>
+                                    <td><Link to={`/admin/users/${user._id}/edit`}>Update</Link></td>
                                     <td><button onClick={() => { deleteUser(user._id) }}>Delete</button></td>
                                 </tr>);
                             })}

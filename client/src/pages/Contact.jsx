@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./Contact.css"
-import { TokenContext } from '../Context/auth';
+import { TokenContext } from '../Context/Auth';
 import { toast } from 'react-toastify';
 
 function Contact() {

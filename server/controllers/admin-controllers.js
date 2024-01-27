@@ -37,11 +37,28 @@ const deleteUser = async (req, res) => {
     }
 }
 
+// retriving user info before editing
 const getUserById = async (req, res) => {
     try {
-
+        const id = req.params.id;
+        const data = await User.findOne({ _id: id }, { password: 0 });
+        console.log(data);
+        res.status(200).json(data);
     } catch (error) {
-        console.log(error);
+        next(error);
     }
 }
-module.exports = { getAllUsers, getAllContacts, deleteUser, getUserById };
+
+// editing user info
+const updatUserById = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const updatedUserData = req.body;
+        const updatedData = await User.updateOne({ _id: id }, { $set: updatedUserData });
+        // console.log(updatedUserData);
+        return res.status(200).json(updatedData);
+    } catch (error) {
+        next(error);
+    }
+}
+module.exports = { getAllUsers, getAllContacts, deleteUser, getUserById, updatUserById };

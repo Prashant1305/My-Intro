@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const user = require("../models/user-models");
 
-const authMiddleware = async (req, res, next) => {
+const adminMiddleware = async (req, res, next) => {
     const token = req.header("Authorization");
     if (!token) {
         return res.status(401).json({ message: "unauthorised HTTP, Token not provided" });
@@ -26,4 +26,4 @@ const authMiddleware = async (req, res, next) => {
         return res.status(401).json({ message: "unauthorised, invalid token." });
     }
 };
-module.exports = authMiddleware;
+module.exports = adminMiddleware;

@@ -32,7 +32,7 @@ function Routing() {
                 <Route path='users' element={<AdminUsers />} />
                 <Route path='contacts' element={<AdminContacts />} />
                 <Route path='services' element={<AdminServices />} />
-                <Route path='users/update/:id' element={<AdminUpdateUsers />} />
+                <Route path='/admin/users/:id/edit' element={<AdminUpdateUsers />} />
             </Route>
             <Route path='*' element={<Err />} />
         </Route>
