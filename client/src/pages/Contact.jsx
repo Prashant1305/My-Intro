@@ -9,7 +9,7 @@ function Contact() {
         email: "",
         message: ""
     })
-    const { isLogged, user } = TokenContext()
+    const { isLogged, user, baseUrl } = TokenContext()
     function handleInput(e) {
         setContact({ ...contact, [e.target.name]: e.target.value });
     }
@@ -27,7 +27,7 @@ function Contact() {
         e.preventDefault();
         console.log(contact);
         try {
-            const res = await fetch("http://localhost:5000/api/form/contact", {
+            const res = await fetch(`${baseUrl}/api/form/contact`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

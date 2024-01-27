@@ -4,10 +4,10 @@ import { toast } from "react-toastify";
 
 function AdminContacts() {
     const [contacts, setContacts] = useState([]);
-    const { token } = TokenContext();
+    const { token, baseUrl } = TokenContext();
     const fetchAllContacts = async () => {
         try {
-            const res = await fetch("http://localhost:5000/api/admin/contacts", {
+            const res = await fetch(`${baseUrl}/api/admin/contacts`, {
                 method: "GET",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -17,7 +17,7 @@ function AdminContacts() {
 
             if (res.ok) {
                 setContacts(res_data);
-                console.log(res_data);
+                // console.log(res_data);
             }
             else {
                 setContacts([]);
@@ -33,7 +33,7 @@ function AdminContacts() {
 
     const deleteContactById = async (id) => {
         try {
-            const res = await fetch(`http://localhost:5000/api/admin/contacts/delete/${id}`, {
+            const res = await fetch(`${baseUrl}/api/admin/contacts/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`,

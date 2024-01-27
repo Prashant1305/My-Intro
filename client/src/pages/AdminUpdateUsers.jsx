@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 function AdminUpdateUsers() {
     const param = useParams();
     // console.log(param);
-    const { token } = TokenContext();
+    const { token, baseUrl } = TokenContext();
     const [userData, setUserData] = useState({
         username: "",
         email: "",
@@ -20,7 +20,7 @@ function AdminUpdateUsers() {
 
     const getSingleUser = async () => {
         try {
-            const res = await fetch(`http://localhost:5000/api/admin/users/${param.id}`, {
+            const res = await fetch(`${baseUrl}/api/admin/users/${param.id}`, {
                 method: "GET",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -43,7 +43,7 @@ function AdminUpdateUsers() {
         e.preventDefault();
         console.log(userData);
         try {
-            const res = await fetch(`http://localhost:5000/api/admin/users/update/${param.id}`, {
+            const res = await fetch(`${baseUrl}/api/admin/users/update/${param.id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",

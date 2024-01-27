@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-
+const baseUrl = "https://myintro.onrender.com";
 const LoginContext = createContext();
 
 function Auth(props) {
@@ -12,7 +12,7 @@ function Auth(props) {
         if (isLogged) {
             try {
                 setIsLoading(true);
-                const response = await fetch("http://localhost:5000/api/auth/user", {
+                const response = await fetch(`${baseUrl}/api/auth/user`, {
                     method: "GET",
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -41,7 +41,7 @@ function Auth(props) {
     useEffect(() => { userAuthentication(); }, [isLogged]);
 
     return (
-        <LoginContext.Provider value={{ token, setToken, isLogged, setLogged, user, isLoading }}>{props.children}</LoginContext.Provider>
+        <LoginContext.Provider value={{ token, setToken, isLogged, setLogged, user, isLoading, baseUrl }}>{props.children}</LoginContext.Provider>
     )
 }
 

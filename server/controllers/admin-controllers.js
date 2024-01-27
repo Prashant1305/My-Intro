@@ -63,6 +63,7 @@ const updatUserById = async (req, res) => {
 }
 
 const deleteContactById = async (req, res, next) => {
+    console.log("deleteContactById was called");
     try {
         const id = req.params.id;
         console.log(id);

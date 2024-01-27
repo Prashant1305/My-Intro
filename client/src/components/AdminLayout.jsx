@@ -5,7 +5,7 @@ import { TokenContext } from '../Context/Auth';
 
 function AdminLayout() {
     const { user, isLoading } = TokenContext();
-    console.log(user);
+    // console.log(user);
     if (isLoading) {
         return <h1>Loading...</h1>;
     }

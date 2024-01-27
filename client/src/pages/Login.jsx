@@ -14,11 +14,11 @@ function Login() {
         setuser({ ...user, [e.target.name]: e.target.value });
     }
     const navigate = useNavigate();
-    const { token, setToken, setLogged } = TokenContext();
+    const { token, setToken, setLogged, baseUrl } = TokenContext();
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            const res = await fetch('http://localhost:5000/api/auth/login', {
+            const res = await fetch(`${baseUrl}/api/auth/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

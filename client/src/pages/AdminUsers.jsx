@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { TokenContext } from '../Context/Auth';
 import { v4 as uuid } from 'uuid';
+import { toast } from 'react-toastify';
 
 
 function AdminUsers() {
-    const { token } = TokenContext();
+    const { token, baseUrl } = TokenContext();
     const [users, setUsers] = useState([]);
     const getAllUserData = async () => {
         try {
-            const res = await fetch("http://localhost:5000/api/admin/users", {
+            const res = await fetch(`${baseUrl}/api/admin/users`, {
                 method: "GET",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -25,7 +26,7 @@ function AdminUsers() {
     const deleteUser = async (id) => {
         console.log(id);
         try {
-            const res = await fetch(`http://localhost:5000/api/admin/users/delete/${id}`, {
+            const res = await fetch(`${baseUrl}/api/admin/users/delete/${id}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -33,6 +34,7 @@ function AdminUsers() {
             });
             if (res.ok) {
                 getAllUserData();
+                toast.success("User deleted Succesfully");
             }
             const vrfy = await res.json();
             // console.log(vrfy);

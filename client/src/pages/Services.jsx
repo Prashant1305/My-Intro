@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { v4 as uuid } from "uuid";
 import "./Services.css";
 import ServiceCards from '../components/ServiceCards';
+import { TokenContext } from '../Context/Auth';
+
 function Services() {
     const [data, setData] = useState([]);
+    const { baseUrl } = TokenContext();
     const fetchServices = async (req, res) => {
         try {
-            const res = await fetch("http://localhost:5000/api/data/service");
+            const res = await fetch("${baseUrl}/api/data/service");
             const res_data = await res.json();
             setData(res_data.msg);
             // console.log(data);

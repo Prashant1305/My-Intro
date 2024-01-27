@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./Register.css";
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
+import { TokenContext } from '../Context/Auth';
 
 
 function Register() {
@@ -11,6 +12,7 @@ function Register() {
         phone: "",
         password: ""
     });
+    const { baseUrl } = TokenContext();
     function handleInput(e) {
         setuser({ ...user, [e.target.name]: e.target.value });
     }
@@ -19,7 +21,7 @@ function Register() {
         e.preventDefault();
         try {
             console.log(user);
-            const res = await fetch('http://localhost:5000/api/auth/register', {
+            const res = await fetch(`${baseUrl}/api/auth/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
