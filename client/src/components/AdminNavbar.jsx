@@ -13,7 +13,6 @@ function AdminNavbar() {
                         <li><NavLink to="/admin"><FaHome />&nbsp;Home</NavLink></li>
                         <li><NavLink to="users"><FaUserEdit />&nbsp;Users</NavLink></li>
                         <li><NavLink to="contacts"><FaMessage />&nbsp;Contacts</NavLink></li>
-                        <li><NavLink to="services"> <FaRegListAlt />&nbsp;Services</NavLink></li>
                     </ul>
                 </nav>
             </div>

@@ -14,7 +14,6 @@ import AdminLayout from './components/AdminLayout';
 import AdminUsers from './pages/AdminUsers';
 import AdminContacts from './pages/AdminContacts';
 import AdminHome from './pages/AdminHome';
-import AdminServices from './pages/AdminServices';
 import AdminUpdateUsers from './pages/AdminUpdateUsers';
 
 function Routing() {
@@ -31,7 +30,6 @@ function Routing() {
                 <Route index element={<AdminHome />} />
                 <Route path='users' element={<AdminUsers />} />
                 <Route path='contacts' element={<AdminContacts />} />
-                <Route path='services' element={<AdminServices />} />
                 <Route path='/admin/users/:id/edit' element={<AdminUpdateUsers />} />
             </Route>
             <Route path='*' element={<Err />} />
