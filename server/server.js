@@ -11,7 +11,7 @@ const adminRoute = require("./router/admin-router");
 
 // handling cors error
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: "https://funny-treacle-6e7380.netlify.app",
     methods: "GET,POST, DELETE, PATCH, HEAD",
     credentials: true,
 };
