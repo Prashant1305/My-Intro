@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { v4 as uuid } from "uuid";
 import "./Services.css";
 import ServiceCards from '../components/ServiceCards';
@@ -9,10 +9,11 @@ function Services() {
     const { baseUrl } = TokenContext();
     const fetchServices = async (req, res) => {
         try {
-            const res = await fetch("${baseUrl}/api/data/service");
+            const res = await fetch(`${baseUrl}/api/data/service`);
+            console.log(res);
             const res_data = await res.json();
             setData(res_data.msg);
-            // console.log(data);
+            console.log(res_data);
         } catch (error) {
             console.log(`error from service.jsx: ${error}`);
         }
